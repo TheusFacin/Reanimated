@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { NativeRouter, Route, Switch } from 'react-router-native'
 
-export default function App() {
+import { Home } from './src/pages/Home'
+import { Login } from './src/pages/Login'
+import { Scroll } from './src/pages/Scroll'
+import { Drag } from './src/pages/Drag'
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NativeRouter>
+      <Switch>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/login" component={Login} />
+        <Route path="/scroll" component={Scroll} />
+        <Route path="/drag" component={Drag} />
+      </Switch>
+    </NativeRouter>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
